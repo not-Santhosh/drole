@@ -1,58 +1,92 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Drole Task
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Drole Task is a simple task management application designed to help users organize and track their daily tasks efficiently. It provides an intuitive interface for creating, updating, and completing tasks, with features like categorization and prioritization.
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/yourusername/drole-task.git
+    cd drole-task
+    ```
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+2. **Install dependencies:**
+    ```bash
+    composer install
+    npm install
+    ```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+3. **Set up the environment:**
+    - Copy `.env.example` to `.env` and configure your database settings.
+    - Generate an application key:
+      ```bash
+      php artisan key:generate
+      ```
 
-## Learning Laravel
+4. **Run migrations:**
+    ```bash
+    php artisan migrate
+    ```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+5. **Build assets:**
+    ```bash
+    npm run build
+    ```
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+6. **Start the application:**
+    ```bash
+    php artisan serve
+    ```
+    Access the app at `http://localhost:8000`.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## Step-by-Step Guide to Using the Application
 
-## Agentic Development
+# User Guide: Student & Staff Management System
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 1. Authentication
+* **Register or Log In:** Open the application and click **Register** to create a new account or **Log In** if you already have one.
+* **Test Credentials:** For quick access, you can use:
+    * **Email:** `test@example.com`
+    * **Password:** `password`
+
+---
+
+## 2. Managing Records (Students & Staff)
+* **Manual Entry:** 1. Navigate to the **Students** or **Staff** section via the sidebar.
+    2. Click the **Add New** button.
+    3. Fill in the **Name** and select the **Department** (e.g., CS, Maths, Physics). 
+    4. For students, select the **Programme** (UG, PG, or PhD). This list filters automatically based on the chosen department.
+    5. Click **Save** to add the record.
+* **Searching & Filtering:** Use the search bar above the table to instantly filter records by name, department, or programme.
+
+---
+
+## 3. Bulk Import Functionality
+To add large volumes of data at once, use the automated import feature:
+* **Upload:** Click the **Import CSV/Excel** button and select your file (`.csv` or `.xlsx`).
+* **Background Processing:** The system uses a **Queued Job** to process the file. You can continue using the application while the data is being imported in the background. use the below command to trigger the queues.
 
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+ php artisan queue:work
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
+
+## 4. Exporting Data
+* **Instant Download:** Click the **Export Excel** button located at the top of the management pages.
+* **Data Format:** The system will generate an `.xlsx` file containing categorized columns: `ID`, `Name`, `Department`, and `Programme`. 
+* **Process:** The export is synchronous and will start downloading to your browser immediately.
+
+---
+
+## 5. System Maintenance
+* **Database Seeding:** Ensure the system administrator has run the seeders to populate the **Departments** (CS, Maths, Physics) and their respective **Programmes** (UG, PG, PhD).
+* **Log Out:** Click on your profile icon in the top-right corner and select **Log Out** to securely end your session.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Contributions are welcome! Please fork the repository and submit a pull request with your improvements.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License.
