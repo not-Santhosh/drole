@@ -92,7 +92,6 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            console.log("hii");
             let table = $('#studentsTable').DataTable({
                 processing: true,
                 serverSide: true,
@@ -117,8 +116,6 @@
             $('#dept_select').on('change', function() {
                 let deptId = $(this).val();
                 let progSelect = $('#prog_select');
-
-                console.log({deptId, progSelect});
                 
                 progSelect.empty().append('<option value="">Loading...</option>');
                 
@@ -147,7 +144,6 @@
                     contentType: false,
                     success: function(res) {
                         Swal.fire('Success', res.message, 'success');
-                        table.ajax.reload();
                         $('#importInput').val('');
                     },
                     error: function(err) {

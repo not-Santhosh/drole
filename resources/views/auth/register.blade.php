@@ -72,7 +72,7 @@
                     </x-forms.button>
                 </div>
             </form>
-            <div class="text-center mt-3 text-slate-500">Already have an account? <a href="{{ route('login') }}" class="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">Login</a></div>
+            <div class="text-center text-xs mt-3 text-slate-500">Already have an account? <a href="{{ route('login') }}" class="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">Login</a></div>
         </div>
     </div>
 @endsection

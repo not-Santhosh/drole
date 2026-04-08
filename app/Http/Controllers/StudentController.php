@@ -47,6 +47,6 @@ class StudentController extends Controller
     {
         $request->validate(['file' => 'required|mimes:xlsx,csv']);
         Excel::import(new StudentsImport, $request->file('file'));
-        return response()->json(['message' => 'Imported started successfully. You will receive a notification when it is completed.']);
+       return response()->json(['message' => 'Import started successfully. kindly reload the page after some time.']);
     }
 }

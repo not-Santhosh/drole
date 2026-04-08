@@ -104,30 +104,30 @@
                     }
                 });
             });
-        });
 
-        $('#importInput').on('change', function() {
-            let formData = new FormData();
-            formData.append('file', this.files[0]);
-            formData.append('_token', "{{ csrf_token() }}");
-
-            $.ajax({
-                url: "{{ route('staff.import') }}",
-                method: "POST",
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(res) {
-                    Swal.fire('Success', res.message, 'success');
-                    table.ajax.reload();
-                    $('#importInput').val('');
-                },
-                error: function(err) {
-                    Swal.fire('Error', err.responseJSON.message, 'error');
-                    $('#importInput').val('');
-                }
+            $('#importInput').on('change', function() {
+                let formData = new FormData();
+                formData.append('file', this.files[0]);
+                formData.append('_token', "{{ csrf_token() }}");
+    
+                $.ajax({
+                    url: "{{ route('staff.import') }}",
+                    method: "POST",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(res) {
+                        Swal.fire('Success', res.message, 'success');
+                        $('#importInput').val('');
+                    },
+                    error: function(err) {
+                        Swal.fire('Error', err.responseJSON.message, 'error');
+                        $('#importInput').val('');
+                    }
+                });
             });
         });
+
 
         function toggleModal() {
             $('#staffModal').toggleClass('hidden');

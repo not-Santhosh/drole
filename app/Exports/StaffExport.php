@@ -19,7 +19,7 @@ class StaffExport implements FromCollection, WithHeadings, WithMapping
 
     public function headings(): array
     {
-        return ['Name', 'Department', 'Programme'];
+        return ['Name', 'Department'];
     }
 
     public function map($staff): array

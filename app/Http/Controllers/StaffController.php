@@ -38,6 +38,6 @@ class StaffController extends Controller
     {
         $request->validate(['file' => 'required|mimes:xlsx,csv']);
         Excel::queueImport(new StaffImport, $request->file('file'));
-        return response()->json(['message' => 'Import started successfully. You will receive a notification when it is completed.']);
+        return response()->json(['message' => 'Import started successfully. kindly reload the page after some time.']);
     }
 }
